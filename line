@@ -1,1 +1,30 @@
-file={'진시황이 중국을 통일한 해는?(ooo년 형식으로 입력)': '221년', }
+import random
+print('이것은 중국 고대사 시간에 배운 내용을 바탕으로 퀴즈를 풀어보는 프로그램입니다. 총 xx개의 문제가 있으며, 문제가 나오면 그것에 대한 답을 입력하면 됩니다. 만일 도중에 그만두고 싶으면 Enter키를 누르세요. 퀴즈가 끝나면 맞춘갯수와 틀린 갯수를 알려준답니다. 그럼 행운을 빌어요!')
+
+question=['진시황이 중국을 통일한 년도는?221년', '중국의 문화를 황하중류, 산동과 동부 해안, 후베이와 양쯔강 중류, 양쯔강 삼각주 저지대, 중국 중앙 남부와 남부해안, 북부지역 총 6개의 특징적인 지역으로 구분해서 각 지역 내 문화 전통의 연속성을 강조한 모델은 무엇인가?구계유형론',  '황하 중류의 신석기 문화로, 요한 군나르 안데르송이 채도문화라고도 이름붙이기도 했던 이 문화는 무엇인가?앙소문화', '안데르송이 앙소문화의 초기 채도의 기원을 메소포타미아 지역으로 파악해 이 설을 제기했으나, 후에 하내에 의해 재조사되어 부정된 이 설은 무엇인가?앙소문화 서래설', '황하 하류의 신석기 문화로, 산동성 태산 남쪽 산기슭 태안시 교구 대문구진에서 발굴되었으며, 팔각 별무늬와 기하 도안의 채도로 유명한 이 문화는 무엇인가?대문구문화']
+
+random.shuffle(question)
+
+trial=0
+right=0
+wrong=0
+
+while trial<=len(question)-1:
+    print(question[trial][0:question[trial].find('?')+1])
+    anwr=input('답:')
+    if anwr=='':
+        break
+    elif anwr==question[trial][question[trial].find('?')+1:]:
+        right+=1
+        print(question[trial][question[trial].find('?')+1:], ', 정답입니다')
+        trial+=1
+    elif anwr!=question[trial][question[trial].find('?')+1:]:
+        wrong+=1
+        print(question[trial][question[trial].find('?')+1:], ', 오답입니다')
+        trial+=1
+
+
+print('*퀴즈 프로그램이 끝났습니다!*\n-총', trial,'번 시도\n-맞은갯수:',right,'-개\n틀린갯수:',wrong,'개')
+        
+    
+        
